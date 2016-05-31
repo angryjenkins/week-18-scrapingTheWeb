@@ -41,8 +41,8 @@ app.get('/scrape', function(req, res) {
 
 			var result = {};
 
-			result.title = $(this).children('a').text();
-			result.link = $(this).children('a').attr('href');
+			result.title = $(this).text();
+			result.link = $(this).attr('href');
 
 			var entry = new Article (result);
 
@@ -53,6 +53,8 @@ app.get('/scrape', function(req, res) {
 			    	console.log(doc);
 			  	}
 			});
+
+			console.log(result);
 		});
 	});
 
