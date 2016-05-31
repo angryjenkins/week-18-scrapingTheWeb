@@ -7,6 +7,10 @@ var NoteSchema = new Schema({
   },
   body: {
     type:String
+  },
+  date: {
+  	type: Date,
+  	default: Date.now
   }
 });
 

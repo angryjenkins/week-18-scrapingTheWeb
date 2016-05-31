@@ -36,14 +36,16 @@ app.get('/', function(req, res) {
 
 app.get('/scrape', function(req, res) {
   	request('https://www.reddit.com/r/EarthPorn/', function(error, response, html) {
+  		
 	    var $ = cheerio.load(html);
+
 	    $('a.title').each(function(i, element) {
 
 			var result = {};
 
 			result.title = $(this).text();
 			result.link = $(this).attr('href');
-
+-
 			var entry = new Article (result);
 
 			entry.save(function(err, doc) {
