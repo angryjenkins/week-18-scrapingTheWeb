@@ -19,10 +19,10 @@ mongoose.connect('mongodb://localhost/mongoosescraper');
 var db = mongoose.connection;
 
 db.on('error', function (err) {
-console.log('Mongoose Error: ', err);
+console.log('Mongoose ERROR: ', err);
 });
 db.once('open', function () {
-console.log('Mongoose connection successful.');
+console.log('Mongoose CONNECTED!');
 });
 
 //Require Schemas
@@ -36,7 +36,7 @@ app.get('/', function(req, res) {
 
 app.get('/scrape', function(req, res) {
   	request('https://www.reddit.com/r/EarthPorn/', function(error, response, html) {
-  		
+
 	    var $ = cheerio.load(html);
 
 	    $('a.title').each(function(i, element) {
@@ -45,7 +45,7 @@ app.get('/scrape', function(req, res) {
 
 			result.title = $(this).text();
 			result.link = $(this).attr('href');
--
+
 			var entry = new Article (result);
 
 			entry.save(function(err, doc) {
