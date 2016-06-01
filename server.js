@@ -48,9 +48,10 @@ app.get('/scrape', function(req, res) {
 			var thisLink = $(this).attr('href');
 
 			//this limits only those links whose last 3 letters are JPG.
-			if(thisLink.slice(-3) == "jpg"){
+			if(thisLink.slice(-3) == "jpg" || thisLink.slice(-3) == 'png'){
 				result.link = $(this).attr('href');
 			}
+
 			var entry = new Article (result);
 
 			entry.save(function(err, doc) {
@@ -112,6 +113,10 @@ app.post('/articles/:id', function(req, res){
 
 		}
 	});
+});
+
+app.use('/public/css/', function(req, res){
+	res.send('sstyles.css');
 });
 
 

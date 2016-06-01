@@ -1,3 +1,9 @@
+
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+        
+
 $.getJSON('/articles', function(data) {
   for (var i = 0; i<data.length; i++){
     $('#articles').append('<p data-id="' + data[i]._id + '">'+ data[i].title + '</p>');
@@ -18,7 +24,7 @@ $(document).on('click', 'p', function(){
     .done(function( data ) {
       console.log(data);
       $('#notes').append('<p class="small">' + data.title + '</p>');
-      $('#notes').append('<img class="materialboxed" width="100%" src="' +  data.link + '"/>');
+      $('#notes').append('<img class="materialboxed" width="300" src="' +  data.link + '"/>');
 
       $('#notes').append('<input id="titleinput" name="title" >');
       $('#notes').append('<textarea id="bodyinput" name="body"></textarea>');
