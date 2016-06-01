@@ -44,8 +44,13 @@ app.get('/scrape', function(req, res) {
 			var result = {};
 
 			result.title = $(this).text();
-			result.link = $(this).attr('href');
 
+			var thisLink = $(this).attr('href');
+
+			//this limits only those links whose last 3 letters are JPG.
+			if(thisLink.slice(-3) == "jpg"){
+				result.link = $(this).attr('href');
+			}
 			var entry = new Article (result);
 
 			entry.save(function(err, doc) {
