@@ -14,8 +14,8 @@ app.use(express.static('public'));
 
 
 
-//Database configuration
-mongoose.connect('mongodb://heroku_mp6vbrhl:7g1smprqg49u1bsqu6e9cabjb7@ds037814.mlab.com:37814/heroku_mp6vbrhl');
+//Database configuration - mLab deployed!
+mongoose.connect('mongodb://test:test@ds037814.mlab.com:37814/heroku_mp6vbrhl');
 var db = mongoose.connection;
 
 db.on('error', function (err) {
