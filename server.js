@@ -15,7 +15,7 @@ app.use(express.static('public'));
 
 
 //Database configuration
-mongoose.connect('mongodb://localhost/mongoosescraper');
+mongoose.connect('mongodb://heroku_mp6vbrhl:7g1smprqg49u1bsqu6e9cabjb7@ds037814.mlab.com:37814/heroku_mp6vbrhl');
 var db = mongoose.connection;
 
 db.on('error', function (err) {
@@ -116,7 +116,7 @@ app.post('/articles/:id', function(req, res){
 });
 
 app.use('/public/css/', function(req, res){
-	res.send('sstyles.css');
+	res.send('styles.css');
 });
 
 
