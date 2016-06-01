@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('public'));
 
+var port = Number(process.env.PORT || 3000);
 
 
 //Database configuration - mLab deployed!
@@ -120,6 +121,6 @@ app.use('/public/css/', function(req, res){
 });
 
 
-app.listen(3000, function() {
-  console.log('App running on port 3000!');
+app.listen(port, function() {
+  console.log('App running on port %s!', port);
 });
