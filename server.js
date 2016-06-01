@@ -5,6 +5,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var request = require('request');
 var cheerio = require('cheerio');
+var path = require('path');
 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
@@ -115,11 +116,6 @@ app.post('/articles/:id', function(req, res){
 		}
 	});
 });
-
-app.use('/public/css/', function(req, res){
-	res.send('styles.css');
-});
-
 
 app.listen(port, function() {
   console.log('App running on port %s!', port);
